@@ -20,3 +20,22 @@ for battery in batteries:
 
 print(joltage)
 
+#part 2
+joltage = 0
+for battery in batteries:
+    jolt = ""
+    last = -1
+
+    for i in range(0, 12):
+        current = last + 1
+        for j in range(current, len(battery) - 11 + i):
+            if int(battery[j]) > int(battery[current]):
+                current = j
+
+        last = current
+        jolt += battery[last]
+    
+    joltage += int(jolt)
+
+
+print(joltage)
